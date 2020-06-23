@@ -1,4 +1,4 @@
-package com.dz.io.domain;
+package com.dz.io.domain.model;
 
 import lombok.Data;
 
@@ -12,4 +12,7 @@ public class Option {
     @Id
     @GeneratedValue
     private Long id;
+
+    private String text;
+
 }
