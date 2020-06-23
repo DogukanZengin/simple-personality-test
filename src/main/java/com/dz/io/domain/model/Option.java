@@ -1,5 +1,6 @@
 package com.dz.io.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,5 +16,6 @@ public class Option {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name = "option_followup")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Question followUp;
 }

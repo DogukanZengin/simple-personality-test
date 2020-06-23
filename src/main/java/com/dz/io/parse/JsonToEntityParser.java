@@ -84,7 +84,7 @@ public final class JsonToEntityParser {
                     if(option.getText().equals(optionWithFollowUp)){
                         option.setFollowUp(createQuestion(jQuestionType.get("condition").get("if_positive")));
                     }
-                    question.getOptions().add(createOption(jOption));
+                    question.getOptions().add(option);
                 });
                 break;
         }
@@ -94,7 +94,6 @@ public final class JsonToEntityParser {
     private Option createOption(JsonNode jOption){
         Option option = new Option();
         option.setText(jOption.asText());
-
         return option;
     }
 

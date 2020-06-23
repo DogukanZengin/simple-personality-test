@@ -1,5 +1,6 @@
 package com.dz.io.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,11 +20,13 @@ public final class Question {
     private Category category;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     List<Option> options;
 
     Type type;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinTable(name = "question_range")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     Range range;
 }
