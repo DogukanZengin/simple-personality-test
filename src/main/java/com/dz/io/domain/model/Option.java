@@ -2,9 +2,7 @@ package com.dz.io.domain.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -15,4 +13,7 @@ public class Option {
 
     private String text;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinTable(name = "option_followup")
+    private Question followUp;
 }

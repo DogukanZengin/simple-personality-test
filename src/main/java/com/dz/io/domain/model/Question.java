@@ -2,10 +2,8 @@ package com.dz.io.domain.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,6 +18,12 @@ public final class Question {
     @OneToOne
     private Category category;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Option> options;
+
+    Type type;
+
     @OneToOne
-    private QuestionType questionType;
+    @JoinTable(name = "question_range")
+    Range range;
 }
