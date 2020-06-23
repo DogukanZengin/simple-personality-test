@@ -18,7 +18,7 @@ export default class Question extends React.Component {
     }
 
     render(){
-        let content, additionalContent;
+        let content;
         const { question, type, visible, markRed } = this.props;
         const { answered } = this.state;
 

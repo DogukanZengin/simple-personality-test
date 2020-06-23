@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const fetchQuestions = () => {
-    return axios.get('/questions-by-category')
+export const fetchQuestions = (categoryId) => {
+    return axios.get('/questions/category' + categoryId)
         .then(
             response => response.data.questions
         )
