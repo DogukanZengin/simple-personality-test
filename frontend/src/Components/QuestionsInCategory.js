@@ -45,7 +45,7 @@ export default class QuestionsInCategory extends React.Component {
     processQuestions(questions){
         let allQuestions = [];
         questions.forEach( (question, key) => {
-            if(question.question_type.type === 'single_choice_conditional'){
+            if(question.type === 'single_choice_conditional'){
                 allQuestions.push(Object.assign({}, question, { visible: true, hasBonus: true }));
                 if(question.question_type.condition && question.question_type.condition.if_positive){
                     allQuestions.push(Object.assign({}, question.question_type.condition.if_positive,
@@ -144,7 +144,7 @@ export default class QuestionsInCategory extends React.Component {
     }
 }
 
-QuestionsInCategory.PropTypes = {
+QuestionsInCategory.propTypes = {
     questions: PropTypes.array.isRequired,
     onCategoryChange: PropTypes.func.isRequired
 }

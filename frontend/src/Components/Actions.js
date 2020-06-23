@@ -20,10 +20,7 @@ export const fetchCategories = () => {
         )
 }
 
-export const sendAnswers = ({
-                                username,
-                                answers
-                            }) => {
+export const sendAnswers = ({username, answers}) => {
     return axios.post('/answers', { username, answers })
         .then(
             response => response.data

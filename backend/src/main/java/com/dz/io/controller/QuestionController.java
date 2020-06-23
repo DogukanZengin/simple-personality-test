@@ -1,5 +1,6 @@
 package com.dz.io.controller;
 
+import com.dz.io.domain.model.Category;
 import com.dz.io.domain.model.Question;
 import com.dz.io.service.QuestionService;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/questions")
+@RequestMapping("/categories")
 public class QuestionController {
 
     private final QuestionService service;
@@ -20,9 +21,14 @@ public class QuestionController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/questions")
     ResponseEntity<List<Question>> retrieveQuestions(){
         return ResponseEntity.status(HttpStatus.OK).body(service.retrieve());
+    }
+
+    @GetMapping
+    ResponseEntity<List<Category>> retrieveCategories(){
+        return ResponseEntity.status(HttpStatus.OK).body(service.retrieveCategories());
     }
 
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { fetchQuestions, fetchCategories, sendAnswers, checkUsername, uploadImage } from '../../actions'
-import App from '../../App'
+import { fetchQuestions, fetchCategories, sendAnswers } from 'Components/Actions'
+import App from 'App'
 export default class AppWrapper extends React.Component {
     constructor(props){
         super(props);
@@ -82,21 +82,6 @@ export default class AppWrapper extends React.Component {
 
     }
 
-    checkUsername(username){
-        return new Promise((resolve, reject)=>{
-            clearTimeout(this.usernameTimeout);
-            this.usernameTimeout = setTimeout(()=>{
-                checkUsername(username)
-                    .then(
-                        response => resolve(response)
-                    )
-                    .catch(
-                        error => reject(error)
-                    );
-            }, 500);
-        });
-    }
-
     render(){
         let categoryQuestions = [];
         const { categories, questions, activeCategory, finished } = this.state;
@@ -110,6 +95,6 @@ export default class AppWrapper extends React.Component {
                         finished={finished}
                         onEmailProvided={this.onEmailProvided.bind(this)}
                         checkUsername={ this.checkUsername.bind(this) }
-                        uploadImage={uploadImage} />
+                        uploadImage={uploadImage}  sendAnswers={}/>
     }
 }
