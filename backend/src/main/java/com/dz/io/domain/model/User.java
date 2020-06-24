@@ -1,12 +1,9 @@
 package com.dz.io.domain.model;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Data
 @Entity
 public final class User {
 
@@ -15,4 +12,20 @@ public final class User {
     private Long id;
 
     private String email;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

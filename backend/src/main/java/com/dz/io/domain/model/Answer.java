@@ -1,13 +1,10 @@
 package com.dz.io.domain.model;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Data
 @Entity
 public final class Answer {
 
@@ -23,4 +20,36 @@ public final class Answer {
 
     @OneToOne
     private Option selected;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    public Option getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Option selected) {
+        this.selected = selected;
+    }
 }
