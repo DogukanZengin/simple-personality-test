@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import { Header, Container, Step, Divider, Modal, Button, Input, Message } from 'semantic-ui-react';
-import Questions from 'Components/QuestionsInCategory'
+import Questions from './Components/QuestionsInCategory'
 export default class App extends React.Component {
   constructor(props){
     super(props);
@@ -27,7 +27,7 @@ export default class App extends React.Component {
 
   render(){
     const { steps, questions, onCategoryChange, lastCategory, finished } = this.props;
-    const { emailProvided, emailValid, duplicateEmail, isCheckingEmail } = this.state;
+    const { emailProvided, emailValid, isCheckingEmail } = this.state;
     let categoryQuestions, emailModal, emailWarning;
     if(questions.length){
       categoryQuestions = <Questions questions={questions}
@@ -46,7 +46,7 @@ export default class App extends React.Component {
           <br/>
         </Modal.Content>
         <Modal.Actions>
-          <Button color='green' onClick={this.emailProvided.bind(this)} disabled={ !emailValid || duplicateEmail || isCheckingEmail } loading={isCheckingEmail}>
+          <Button color='green' onClick={this.emailProvided.bind(this)} disabled={ !emailValid || isCheckingEmail } loading={isCheckingEmail}>
             Continue
           </Button>
         </Modal.Actions>

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'semantic-ui-react'
-import Question from 'Question'
-import UnansweredQuestionModal from 'UnansweredQuestions'
+import Question from './Question'
+import UnansweredQuestionModal from './UnansweredQuestions'
 
 export default class QuestionsInCategory extends React.Component {
     constructor(props){

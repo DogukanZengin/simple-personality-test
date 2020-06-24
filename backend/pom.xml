@@ -4,9 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <modules>
-        <module>backend</module>
-    </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -14,10 +11,10 @@
         <relativePath/>
     </parent>
     <groupId>com.dz.io</groupId>
-    <artifactId>simple-personality-test</artifactId>
+    <artifactId>backend</artifactId>
     <version>1.0-SNAPSHOT</version>
     <description>A single page personality test for assignment purposes</description>
-    <name>simple-personality-test</name>
+    <name>backend</name>
 
     <dependencies>
         <dependency>
@@ -50,6 +47,11 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.3.8</version>
         </dependency>
     </dependencies>
     <build>

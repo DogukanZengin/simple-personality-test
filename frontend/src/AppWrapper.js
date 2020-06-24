@@ -1,6 +1,6 @@
 import React from 'react'
-import { fetchQuestions, fetchCategories, sendAnswers } from 'Components/Actions'
-import App from 'App'
+import { fetchQuestions, fetchCategories, sendAnswers } from './Components/Actions'
+import App from './App'
 export default class AppWrapper extends React.Component {
     constructor(props){
         super(props);
@@ -22,15 +22,15 @@ export default class AppWrapper extends React.Component {
         fetchCategories()
             .then(
                 categories => this.setState({
-                    activeCategory: 0,
+                    activeCategory: 1,
                     categories,
-                    steps: this.generateSteps(categories, 0)
+                    steps: this.generateSteps(categories, 1)
                 })
             )
             .catch(
                 () => this.setState({ error: true })
             )
-
+        console.log("fetching......")
         fetchQuestions()
             .then(
                 questions => this.setState({ questions })
@@ -94,7 +94,6 @@ export default class AppWrapper extends React.Component {
                         lastCategory={activeCategory + 1 === categories.length}
                         finished={finished}
                         onEmailProvided={this.onEmailProvided.bind(this)}
-                        checkUsername={ this.checkUsername.bind(this) }
-                        uploadImage={uploadImage}  sendAnswers={}/>
+                        checkUsername={ this.checkUsername.bind(this) }/>
     }
 }

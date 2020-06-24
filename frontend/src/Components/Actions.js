@@ -1,7 +1,7 @@
 import axios from 'axios';
-
+let proxy = "http://localhost:8080/api/v1";
 export const fetchQuestions = (categoryId) => {
-    return axios.get('/questions/category' + categoryId)
+    return axios.get(proxy + '/questions/category/' + categoryId)
         .then(
             response => response.data.questions
         )
@@ -11,7 +11,7 @@ export const fetchQuestions = (categoryId) => {
 }
 
 export const fetchCategories = () => {
-    return axios.get('/categories')
+    return axios.get(proxy + '/categories')
         .then(
             response => response.data.categories
         )

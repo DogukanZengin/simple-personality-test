@@ -21,6 +21,6 @@ export default class UnansweredQuestions extends React.Component{
     }
 }
 
-UnansweredQuestions.PropTypes = {
+UnansweredQuestions.propTypes = {
     onClose: PropTypes.func.isRequired
 }

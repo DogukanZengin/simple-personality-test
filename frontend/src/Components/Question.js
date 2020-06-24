@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Header, Segment, Responsive } from 'semantic-ui-react'
-import SingleChoice from 'SingleChoiceQuestion'
-import NumberRange from 'NumberRangeQuestion'
+import SingleChoice from './SingleChoiceQuestion'
+import NumberRange from './NumberRangeQuestion'
 
 export default class Question extends React.Component {
     constructor(props){
@@ -48,7 +48,7 @@ export default class Question extends React.Component {
     }
 }
 
-Question.PropTypes = {
+Question.propTypes = {
     markRed: PropTypes.bool
 }
 
