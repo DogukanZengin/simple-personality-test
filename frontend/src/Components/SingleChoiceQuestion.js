@@ -23,11 +23,12 @@ export default class SingleChoice extends React.Component {
                     options.map( (option, id) => [
                         <Form.Field>
                             <Radio
-                                label={ option }
+                                label={ option.text }
                                 name='radioGroup'
                                 value={id}
                                 checked={this.state.selected === id}
                                 onChange={this.handleChange}
+                                key={id + option.id}
                             />
                         </Form.Field>
                     ])

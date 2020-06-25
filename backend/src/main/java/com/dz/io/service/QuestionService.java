@@ -27,4 +27,8 @@ public class QuestionService {
     public List<Category> retrieveCategories(){
         return categoryRepository.findAll();
     }
+
+    public List<Question> retrieveByCategoryId(Long categoryId){
+        return repository.findByCategory(categoryRepository.findById(categoryId).get());
+    }
 }

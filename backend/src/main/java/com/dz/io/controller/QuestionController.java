@@ -28,8 +28,8 @@ public class QuestionController {
     }
 
     @GetMapping(path = "/category/{categoryId}")
-    ResponseEntity<List<CategoryQuestionsDto>> retrieveQuestionsByCategory(final @PathVariable("categoryId") Long categoryId){
-        return null;
+    ResponseEntity<List<Question>> retrieveQuestionsByCategory(final @PathVariable("categoryId") Long categoryId){
+        return ResponseEntity.status(HttpStatus.OK).body(service.retrieveByCategoryId(categoryId));
     }
 
 }

@@ -14,30 +14,31 @@ export default class AppWrapper extends React.Component {
             activeCategory: -1,
             categories: [],
             finished: false,
-            email: ''
+            email: '',
         };
         this.usernameTimeout = null;
+    }
 
+    componentWillMount(){
         this.onCategoryChange = this.onCategoryChange.bind(this);
         fetchCategories()
             .then(
                 categories => this.setState({
-                    activeCategory: 1,
+                    activeCategory: 0,
                     categories,
-                    steps: this.generateSteps(categories, 1)
+                    steps: this.generateSteps(categories, 0)
                 })
             )
             .catch(
                 () => this.setState({ error: true })
             )
-        console.log("fetching......")
-        fetchQuestions()
+        fetchQuestions(1)
             .then(
-                questions => this.setState({ questions })
+                questions => this.setState({questions})
             )
             .catch(
-                () => this.setState({ error: true })
-            )
+            () => this.setState({ error: true })
+        )
     }
 
     generateSteps(categories, activeCategory){
@@ -57,7 +58,6 @@ export default class AppWrapper extends React.Component {
 
     onEmailProvided(email){
         this.setState({ email });
-        console.log(email)
     }
 
     onCategoryChange(categoryAnswers){
@@ -83,17 +83,12 @@ export default class AppWrapper extends React.Component {
     }
 
     render(){
-        let categoryQuestions = [];
         const { categories, questions, activeCategory, finished } = this.state;
-        if(activeCategory >= 0 && Object.keys(questions).length){
-            categoryQuestions = questions[categories[activeCategory].name];
-        }
         return <App steps={this.state.steps}
-                        questions={categoryQuestions}
+                        questions={questions}
                         onCategoryChange={this.onCategoryChange}
                         lastCategory={activeCategory + 1 === categories.length}
                         finished={finished}
-                        onEmailProvided={this.onEmailProvided.bind(this)}
-                        checkUsername={ this.checkUsername.bind(this) }/>
+                        onEmailProvided={this.onEmailProvided.bind(this)}/>
     }
 }

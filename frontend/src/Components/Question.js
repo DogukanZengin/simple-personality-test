@@ -19,23 +19,23 @@ export default class Question extends React.Component {
 
     render(){
         let content;
-        const { question, type, visible, markRed } = this.props;
+        const { question, options, type, range, visible, markRed } = this.props;
         const { answered } = this.state;
 
-        switch(type.type){
-            case 'single_choice':
-            case 'single_choice_conditional':
-                content = <SingleChoice options={type.options} onChange={this.onChange.bind(this)} />
+        switch(type){
+            case 'SINGLE_CHOICE':
+            case 'SINGLE_CHOICE_CONDITIONAL':
+                content = <SingleChoice options={options} onChange={this.onChange.bind(this)} />
                 break;
-            case 'number_range':
-                content = <NumberRange range={type.range} onChange={this.onChange.bind(this)} />
+            case 'NUMBER_RANGE':
+                content = <NumberRange range={range} onChange={this.onChange.bind(this)} />
                 break;
             default:
                 break;
         }
 
         return(
-            <div className={"question" + (visible ? '-visible' : '-invisible')} style={{ display: (visible ? 'block' : 'none') }}>
+            <div>
                 <Header as='h4' attached='top' textAlign={'left'}>
                     { question }
                 </Header>

@@ -32,7 +32,7 @@ public final class JsonToEntityParser {
 
     @PostConstruct
     public void init() throws IOException {
-        map(read("personality-test.json"));
+        map(read("/personality-test.json"));
     }
 
     public JsonNode read(final String uri) throws IOException{

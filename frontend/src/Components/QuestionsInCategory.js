@@ -130,10 +130,11 @@ export default class QuestionsInCategory extends React.Component {
         return (
             <div>
                 {
-                    questions.map( (question, key) => <Question question={question.question}
-                                                                type={question.question_type}
-                                                                visible={question.visible}
-                                                                key={question.category + key}
+                    questions.map( (question, key) => <Question question={question.text}
+                                                                type={question.type}
+                                                                options={question.options}
+                                                                range={question.range}
+                                                                key={question.id + key}
                                                                 onChange={this.saveAnswer.bind(this, key)}
                                                                 markRed={markUnanswered}/> )
                 }

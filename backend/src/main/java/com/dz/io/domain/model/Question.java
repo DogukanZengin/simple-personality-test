@@ -14,7 +14,7 @@ public final class Question {
 
     private String text;
 
-    @OneToOne
+    @ManyToOne
     private Category category;
 
     @OneToMany(cascade = CascadeType.ALL)

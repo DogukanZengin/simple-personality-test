@@ -3,7 +3,7 @@ let proxy = "http://localhost:8080/api/v1";
 export const fetchQuestions = (categoryId) => {
     return axios.get(proxy + '/questions/category/' + categoryId)
         .then(
-            response => response.data.questions
+            response => response.data
         )
         .catch(
             err => console.log('Fetch failed.', err)

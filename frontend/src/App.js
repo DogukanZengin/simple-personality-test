@@ -13,9 +13,9 @@ export default class App extends React.Component {
     }
   }
   validateEmail() {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(re.test(this.state.email)){
-      this.setState({ emailValid: true });
+      this.setState({ emailValid: true, isCheckingEmail: false });
     }
     else{
       this.setState({ emailValid: false });
@@ -29,10 +29,12 @@ export default class App extends React.Component {
     const { steps, questions, onCategoryChange, lastCategory, finished } = this.props;
     const { emailProvided, emailValid, isCheckingEmail } = this.state;
     let categoryQuestions, emailModal, emailWarning;
-    if(questions.length){
+    if(questions && questions.length){
+      console.log(questions)
       categoryQuestions = <Questions questions={questions}
                                      onCategoryChange={onCategoryChange}
                                      lastCategory={lastCategory} />
+
     }
 
     if(!emailProvided){
@@ -75,7 +77,5 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
-  steps: PropTypes.array.isRequired,
-  sendAnswers: PropTypes.func.isRequired,
-  checkUsername: PropTypes.func.isRequired
+  steps: PropTypes.array.isRequired
 }
