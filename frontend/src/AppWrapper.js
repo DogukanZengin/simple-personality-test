@@ -47,7 +47,8 @@ export default class AppWrapper extends React.Component {
                 completed: false,
                 title: category.display,
                 name: category.name,
-                active: activeCategory === id
+                active: activeCategory === id,
+                key : id
             }
         });
     }
@@ -59,7 +60,6 @@ export default class AppWrapper extends React.Component {
     onCategoryChange(categoryAnswers){
         let answers = [...this.state.answers];
         const { categories, email } = this.state;
-        console.log("Email",email);
         answers = answers.concat(categoryAnswers);
         let activeCategory = this.state.activeCategory;
         if(activeCategory + 1 === this.state.categories.length){

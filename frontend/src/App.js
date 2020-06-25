@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Header, Container, Step, Divider, Modal, Button, Input, Message } from 'semantic-ui-react';
+import { Header, Container, Step, Divider, Modal, Button, Input } from 'semantic-ui-react';
 import Questions from './Components/QuestionsInCategory'
 export default class App extends React.Component {
   constructor(props){
@@ -56,16 +56,16 @@ export default class App extends React.Component {
 
     if(finished){
       return <Container textAlign="center">
-        <Header className="thank-you" as="h1">Thank you!</Header>
+        <Header className="thank-you" as="h1">Your Answers are saved to Data Store</Header>
       </Container>
     }
     else{
       return (
           <div id="content">
             <Container textAlign="center">
-              <Header className="the-title" as="h1">Personality Test</Header>
+              <Header className="the-title" as="h1">What is your personality</Header>
               <Step.Group size="large" fluid ordered items={steps} stackable="tablet"/>
-              <Divider horizontal>Answer the questions below</Divider>
+              <Divider horizontal>Answer the questions</Divider>
               { categoryQuestions }
             </Container>
             { emailModal }

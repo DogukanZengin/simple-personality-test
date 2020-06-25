@@ -34,6 +34,7 @@ public class AnswerService {
         answer.setUser(user);
         answer.setQuestion(answerDto.getQuestion());
         answer.setSelected(answerDto.getAnswer());
+        answer.setRangeValue(answerDto.getRange());
         repository.save(answer);
     }
 }

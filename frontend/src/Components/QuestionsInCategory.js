@@ -21,7 +21,14 @@ export default class QuestionsInCategory extends React.Component {
     saveAnswer(id, answer){
         let answers = [...this.state.answers];
         let questions = [...this.state.questions];
-        answers[id].answer = answer;
+        console.log(typeof answer)
+        if (typeof answer === "number") {
+            console.log("Setting range");
+            answers[id].range = answer;
+            console.log(answers[id])
+        }else{
+            answers[id].answer = answer;
+        }
         if(questions[id].hasBonus){
             questions[id + 1].visible = this.processCondition(answer);
         }
@@ -69,7 +76,7 @@ export default class QuestionsInCategory extends React.Component {
             if(!this.state.questions[key].visible){
                 return false
             }
-            return answer.answer == null;
+            return answer.range == null && answer.answer == null;
         }).length === 0;
     }
 

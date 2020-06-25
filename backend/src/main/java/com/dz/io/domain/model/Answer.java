@@ -21,6 +21,8 @@ public final class Answer {
     @OneToOne
     private Option selected;
 
+    private String rangeValue;
+
     public Long getId() {
         return id;
     }
@@ -51,5 +53,13 @@ public final class Answer {
 
     public void setSelected(Option selected) {
         this.selected = selected;
+    }
+
+    public String getRangeValue() {
+        return rangeValue;
+    }
+
+    public void setRangeValue(String rangeValue) {
+        this.rangeValue = rangeValue;
     }
 }

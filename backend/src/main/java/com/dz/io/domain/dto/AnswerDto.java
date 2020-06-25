@@ -9,6 +9,8 @@ public class AnswerDto {
     Question question;
     @JsonProperty("answer")
     Option answer;
+    @JsonProperty("range")
+    String range;
 
     public Question getQuestion() {
         return question;
@@ -24,5 +26,13 @@ public class AnswerDto {
 
     public void setAnswer(Option answer) {
         this.answer = answer;
+    }
+
+    public String getRange() {
+        return range;
+    }
+
+    public void setRange(String range) {
+        this.range = range;
     }
 }
