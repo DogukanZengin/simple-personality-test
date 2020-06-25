@@ -1,6 +1,6 @@
 # Simple-personality-test
 This is a simple personality test for assignment purposes, User can enter their email and answer to several personality questions seperated by categories.
-Right now there is answers are not processed to create a personality result. This can be done in the future.
+Right now  answers are not processed to create a personality result only tored in database. This can be done in the future.
 
 ** When application boots, personality-test.json file in the root folder is parsed, mapped and stored in DB
 
