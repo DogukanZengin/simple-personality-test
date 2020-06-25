@@ -74,18 +74,6 @@
 }
 },
 {
-"question": "How should your potential partner respond to this question?",
-"category": "lifestyle",
-"question_type": {
-"type": "single_choice",
-"options": [
-"yes",
-"sometimes",
-"no"
-]
-}
-},
-{
 "question": "Could you imagine having children with your potential partner?",
 "category": "lifestyle",
 "question_type": {

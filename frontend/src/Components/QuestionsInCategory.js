@@ -23,7 +23,7 @@ export default class QuestionsInCategory extends React.Component {
         let questions = [...this.state.questions];
         answers[id].answer = answer;
         if(questions[id].hasBonus){
-            questions[id + 1].visible = this.processCondition(questions[id].question_type.condition, answer);
+            questions[id + 1].visible = this.processCondition(answer);
         }
         this.setState({ answers, questions });
     }
@@ -38,35 +38,30 @@ export default class QuestionsInCategory extends React.Component {
         } );
     }
 
-    /**
-     * Prepares questions for displaying
-     * @param questions
-     */
     processQuestions(questions){
         let allQuestions = [];
         questions.forEach( (question, key) => {
-            if(question.type === 'single_choice_conditional'){
+            if(question.type === 'SINGLE_CHOICE_CONDITIONAL'){
                 allQuestions.push(Object.assign({}, question, { visible: true, hasBonus: true }));
-                if(question.question_type.condition && question.question_type.condition.if_positive){
-                    allQuestions.push(Object.assign({}, question.question_type.condition.if_positive,
-                        { visible: false, hasBonus: false }))
-                }
+                question.options.forEach( (option, key) => {
+                    if(option.followUp){
+                        allQuestions.push(Object.assign({}, option.followUp, { visible: false, hasBonus: false }));
+                    }
+                });
             }
             else{
                 allQuestions.push(Object.assign({}, question, { visible: true, hasBonus: false }));
             }
         });
+        console.log(allQuestions)
         return allQuestions;
     }
 
-    processCondition(condition, targetValue){
-        let matches = false;
-        if(condition.predicate.exactEquals){
-            if(targetValue === condition.predicate.exactEquals[1]){
-                matches = true;
-            }
+    processCondition(answer){
+        if(answer.followUp){
+            return true;
         }
-        return matches;
+        return false;
     }
 
     canMoveToNextCategory(){
@@ -106,7 +101,6 @@ export default class QuestionsInCategory extends React.Component {
         const { lastCategory } = this.props;
         const { questions, showModal, markUnanswered } = this.state;
         let button, uaModal;
-        //{/*disabled={!this.canMoveToNextCategory()}*/
         if(!lastCategory){
             button = <Button primary
                              content='Next'
@@ -135,6 +129,7 @@ export default class QuestionsInCategory extends React.Component {
                                                                 options={question.options}
                                                                 range={question.range}
                                                                 key={question.id + key}
+                                                                visible={question.visible}
                                                                 onChange={this.saveAnswer.bind(this, key)}
                                                                 markRed={markUnanswered}/> )
                 }

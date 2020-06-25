@@ -81,7 +81,9 @@ public final class JsonToEntityParser {
                 jQuestionType.get("options").elements().forEachRemaining(jOption ->{
                     Option option = createOption(jOption);
                     if(option.getText().equals(optionWithFollowUp)){
-                        option.setFollowUp(createQuestion(jQuestionType.get("condition").get("if_positive")));
+                        Question fQuestion = createQuestion(jQuestionType.get("condition").get("if_positive"));
+                        fQuestion.setVisible(Boolean.FALSE);
+                        option.setFollowUp(fQuestion);
                     }
                     question.getOptions().add(option);
                 });
@@ -98,8 +100,8 @@ public final class JsonToEntityParser {
 
     private Range createRange(JsonNode jRange){
         Range range = new Range();
-        range.setMin(jRange.get("from").asText());
-        range.setMax(jRange.get("to").asText());
+        range.setMin(Long.parseLong(jRange.get("from").asText()));
+        range.setMax(Long.parseLong(jRange.get("to").asText()));
         return range;
     }
 

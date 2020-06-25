@@ -9,5 +9,5 @@ import java.util.List;
 public interface QuestionRepository extends CrudRepository<Question, Long> {
 
     List<Question> findAll();
-    List<Question> findByCategory(Category category);
+    List<Question> findByCategoryAndVisible(Category category, Boolean visible);
 }

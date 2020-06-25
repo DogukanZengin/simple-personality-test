@@ -28,6 +28,8 @@ public final class Question {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     Range range;
 
+    Boolean visible = Boolean.TRUE;
+
     public Long getId() {
         return id;
     }
@@ -74,5 +76,13 @@ public final class Question {
 
     public void setRange(Range range) {
         this.range = range;
+    }
+
+    public Boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
     }
 }

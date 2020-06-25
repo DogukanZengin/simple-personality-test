@@ -7,8 +7,12 @@ export default class SingleChoice extends React.Component {
         this.state = {
             selected: -1
         };
+    }
+
+    componentWillMount(){
         this.handleChange = this.handleChange.bind(this);
     }
+    
     handleChange(ev, {value}){
         this.setState({ selected: value }, ()=>{
             this.props.onChange(this.props.options[value]);

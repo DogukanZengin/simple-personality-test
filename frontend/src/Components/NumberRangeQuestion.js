@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Segment } from 'semantic-ui-react'
 import Slider from 'react-rangeslider'
+import 'react-rangeslider/lib/index.css';
 
 
 export default class NumberRangeQuestion extends React.Component {
@@ -9,8 +10,11 @@ export default class NumberRangeQuestion extends React.Component {
         this.state = {
             value: props.range.from
         };
+    }
+    componentWillMount(){
         this.handleChange = this.handleChange.bind(this);
     }
+    
     handleChange(value){
         this.setState({ value }, ()=>{
             this.props.onChange(value);

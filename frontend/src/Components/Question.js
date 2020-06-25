@@ -21,7 +21,6 @@ export default class Question extends React.Component {
         let content;
         const { question, options, type, range, visible, markRed } = this.props;
         const { answered } = this.state;
-
         switch(type){
             case 'SINGLE_CHOICE':
             case 'SINGLE_CHOICE_CONDITIONAL':
@@ -35,7 +34,7 @@ export default class Question extends React.Component {
         }
 
         return(
-            <div>
+            <div className={"question" + (visible ? '-visible' : '-invisible')} style={{ display: (visible ? 'block' : 'none') }}>
                 <Header as='h4' attached='top' textAlign={'left'}>
                     { question }
                 </Header>

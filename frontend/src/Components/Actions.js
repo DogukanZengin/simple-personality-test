@@ -13,7 +13,7 @@ export const fetchQuestions = (categoryId) => {
 export const fetchCategories = () => {
     return axios.get(proxy + '/categories')
         .then(
-            response => response.data.categories
+            response => response.data
         )
         .catch(
             err => console.log('Fetch failed.', err)
@@ -21,7 +21,7 @@ export const fetchCategories = () => {
 }
 
 export const sendAnswers = ({username, answers}) => {
-    return axios.post('/answers', { username, answers })
+    return axios.post(proxy + '/answers', { username, answers })
         .then(
             response => response.data
         )

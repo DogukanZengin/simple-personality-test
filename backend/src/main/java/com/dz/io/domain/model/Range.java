@@ -11,8 +11,8 @@ public class Range {
     @GeneratedValue
     private Long id;
 
-    String min;
-    String max;
+    Long min;
+    Long max;
 
     public Long getId() {
         return id;
@@ -22,19 +22,19 @@ public class Range {
         this.id = id;
     }
 
-    public String getMin() {
+    public Long getMin() {
         return min;
     }
 
-    public void setMin(String min) {
+    public void setMin(Long min) {
         this.min = min;
     }
 
-    public String getMax() {
+    public Long getMax() {
         return max;
     }
 
-    public void setMax(String max) {
+    public void setMax(Long max) {
         this.max = max;
     }
 }

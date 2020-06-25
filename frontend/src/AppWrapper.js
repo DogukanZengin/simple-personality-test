@@ -51,11 +51,7 @@ export default class AppWrapper extends React.Component {
             }
         });
     }
-
-    testCompleted(email){
-        sendAnswers({ username: email, answers: this.state.answers});
-    }
-
+    
     onEmailProvided(email){
         this.setState({ email });
     }
@@ -63,16 +59,22 @@ export default class AppWrapper extends React.Component {
     onCategoryChange(categoryAnswers){
         let answers = [...this.state.answers];
         const { categories, email } = this.state;
+        console.log("Email",email);
         answers = answers.concat(categoryAnswers);
         let activeCategory = this.state.activeCategory;
         if(activeCategory + 1 === this.state.categories.length){
-            // that's it
             this.setState({ finished: true, answers });
             sendAnswers({ username: email, answers });
-
         }
         else{
             activeCategory++;
+            fetchQuestions(activeCategory+1)
+                .then(
+                    questions => this.setState({questions})
+                )
+                .catch(
+                    () => this.setState({ error: true })
+                )
             this.setState({
                 answers,
                 activeCategory,

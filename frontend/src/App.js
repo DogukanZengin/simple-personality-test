@@ -16,6 +16,7 @@ export default class App extends React.Component {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(re.test(this.state.email)){
       this.setState({ emailValid: true, isCheckingEmail: false });
+      this.props.onEmailProvided(this.state.email);
     }
     else{
       this.setState({ emailValid: false });
@@ -29,17 +30,15 @@ export default class App extends React.Component {
     const { steps, questions, onCategoryChange, lastCategory, finished } = this.props;
     const { emailProvided, emailValid, isCheckingEmail } = this.state;
     let categoryQuestions, emailModal, emailWarning;
-    if(questions && questions.length){
-      console.log(questions)
+    if(questions.length){
       categoryQuestions = <Questions questions={questions}
                                      onCategoryChange={onCategoryChange}
                                      lastCategory={lastCategory} />
-
     }
 
     if(!emailProvided){
       emailModal = <Modal dimmer="blurring" open={true} >
-        <Modal.Header>Please enter valid email address</Modal.Header>
+        <Modal.Header>Please enter your email address</Modal.Header>
         <Modal.Content>
           <Input fluid focus placeholder='Email'
                  onChange={(ev, props)=>{ this.setState({ email: props.value, isCheckingEmail: true }, ()=>{ this.validateEmail() }); }}
@@ -66,7 +65,7 @@ export default class App extends React.Component {
             <Container textAlign="center">
               <Header className="the-title" as="h1">Personality Test</Header>
               <Step.Group size="large" fluid ordered items={steps} stackable="tablet"/>
-              <Divider horizontal>Please answer questions below</Divider>
+              <Divider horizontal>Answer the questions below</Divider>
               { categoryQuestions }
             </Container>
             { emailModal }
