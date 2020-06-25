@@ -11,6 +11,7 @@ Prerequisites
 Run
 --------
 1- Clone the project to your local environment
+
 2- Run docker-compose up on a terminal in the project folder, this can take a while in the first run.
 
 Project Structure
