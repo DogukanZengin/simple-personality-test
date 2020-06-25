@@ -18,8 +18,12 @@ Project Structure
 -----------------
 
 There two modules in the project[backend,frontend]
-  - Backend uses Spring Boot 2.3, Java 11 and H2 DB for data store
-  - Frontend uses Reactjs, Axios, Semantic UI
+  
+| Backend                   | Frontend      |      
+|---------------------------|--------------:|
+| Java 11                   | React 16.13.1 |
+| Spring Boot 2.3.1.RELEASE | Axios         |
+| H2 In Memory Database     | Semantic UI.  |  
   
 Miscellaneous
 -------------
