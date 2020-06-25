@@ -1,5 +1,6 @@
 # Simple-personality-test
-This is a simple personality test for assignment purposes
+This is a simple personality test for assignment purposes, User can enter their email and answer to several personality questions seperated by categories.
+Right now there is answers are not processed to create a personality result. This can be done in the future. 
 
 # BUILD
 
