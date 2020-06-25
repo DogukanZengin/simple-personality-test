@@ -24,6 +24,7 @@ Miscellaneous
 -------------
 
 - Database console can be accessed from http://localhost:8080/api/v1/h2-console
+- UI design is copied from https://github.com/hitman99/personality-test Thanks hitman!
 
 Thoughts
 -----------
