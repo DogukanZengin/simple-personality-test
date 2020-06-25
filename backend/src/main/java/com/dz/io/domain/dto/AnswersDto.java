@@ -1,11 +1,29 @@
 package com.dz.io.domain.dto;
 
-import com.dz.io.domain.model.Answer;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
 public class AnswersDto {
 
-    String email;
-    List<Answer> answers;
+    @JsonProperty("username")
+    String userName;
+    @JsonProperty("answers")
+    List<AnswerDto> answers;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public List<AnswerDto> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<AnswerDto> answers) {
+        this.answers = answers;
+    }
 }

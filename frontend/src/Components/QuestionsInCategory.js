@@ -31,7 +31,7 @@ export default class QuestionsInCategory extends React.Component {
     prepareAnswers(questions){
         return questions.map( (question) => {
             return {
-                question: question.question,
+                question: question,
                 answer: null,
                 category: question.category
             };
