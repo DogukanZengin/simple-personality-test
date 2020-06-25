@@ -30,7 +30,6 @@ export default class SingleChoice extends React.Component {
                                 label={ option.text }
                                 name='radioGroup'
                                 value={id}
-                                checked={this.state.selected === id}
                                 onChange={this.handleChange}
                                 key = {option.id}/>
                         </Form.Field>
