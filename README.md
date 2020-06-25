@@ -34,4 +34,4 @@ Miscellaneous
 
 Thoughts
 -----------
-- Right now answers are stored in H2 RDBMS. Since there is no relation between different user's answers, It can be stored on a NOSQl DB like Mongo for faster reads and processing
+- Right now answers are stored in H2 RDBMS. Since there is no relation between different user's answers, It can be stored on a NOSQL DB like Mongo for faster reads and processing
