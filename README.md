@@ -24,6 +24,7 @@ Miscellaneous
 -------------
 
 - Database console can be accessed from http://localhost:8080/api/v1/h2-console
+- REST API Requests can be accessed from https://www.getpostman.com/collections/cfbf0057b9790cc3b277
 - UI design is copied from https://github.com/hitman99/personality-test Thanks hitman!
 
 Thoughts
